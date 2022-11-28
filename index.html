@@ -4,8 +4,8 @@
     </head>
     <body>
         <div>
-            <textarea id="input"></textarea>
-            <button>Run</button>
+            <textarea id="input" rows="10" cols="80"></textarea>
+            <button id="submit">Run</button>
         </div>
 
 
@@ -15,9 +15,19 @@
         </iframe>
         <script src="./main.js"></script>
         <script>
-           setTimeout(() => {
+            setTimeout(() => {
                 document.getElementById("myFrame").srcdoc = python_src;
-            }, 1000);
+            }, 200000);
+
+            document.addEventListener("DOMContentLoaded", () => {
+                console.log('Doucment Ready');
+                document.getElementById('submit').onclick = (event) => {
+                    console.log('submit clicked');
+                    const inputElm = document.getElementById('input');
+                    console.log(`input=${inputElm.value}`)
+                    document.getElementById("myFrame").srcdoc = python_html(inputElm.value);
+                };
+            });
         </script>
     </body>
 </html>
