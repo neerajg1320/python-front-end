@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Iframe</title>
+    </head>
+    <body>
+        <p>Make an iframe</p>
+        <iframe id="myFrame" srcdoc="<h1>Hello world!</h1>">
+
+        </iframe>
+        <script src="./main.js"></script>
+        <script>
+           setTimeout(() => {
+                document.getElementById("myFrame").srcdoc = python_src;
+            }, 1000);
+        </script>
+    </body>
+</html>
